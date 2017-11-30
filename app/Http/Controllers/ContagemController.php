@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contagem;
 use App\Http\Requests\ContagemRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContagemController extends Controller
 {

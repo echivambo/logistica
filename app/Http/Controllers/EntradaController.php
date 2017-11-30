@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entrada;
 use App\Http\Requests\EntradaRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EntradaController extends Controller
 {
