@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Contagem;
+use App\Http\Requests\ContagemRequest;
 use Illuminate\Http\Request;
 
 class ContagemController extends Controller
 {
+    private $contagem;
+    public function __construct(Contagem $contagem)
+    {
+        $this->contagem=$contagem;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,10 @@ class ContagemController extends Controller
      */
     public function index()
     {
-        //
+        $contagems = $this->contagem->all();
+        $franquias = DB::table('franquias')->select('id', 'nome')->get();
+        $produtos = DB::table('produtos')->select('id', 'nome')->get();
+        return view('admin.contagem', compact('contagems','franquias','produtos'));
     }
 
     /**
@@ -23,7 +34,7 @@ class ContagemController extends Controller
      */
     public function create()
     {
-        //
+        //return view('painel.produto');
     }
 
     /**
@@ -32,10 +43,12 @@ class ContagemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContagemRequest $request)
     {
-        //
+        Contagem::create($request->all());
+        return redirect()->route('contagens.index')->with('message', 'Contagem registada com sucesso!');
     }
+
 
     /**
      * Display the specified resource.

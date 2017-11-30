@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Entrada;
+use App\Http\Requests\EntradaRequest;
 use Illuminate\Http\Request;
 
 class EntradaController extends Controller
 {
+    private $entrada;
+    public function __construct(Entrada $entrada)
+    {
+        $this->entrada=$entrada;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,10 @@ class EntradaController extends Controller
      */
     public function index()
     {
-        //
+        $entradas = $this->entrada->all();
+        $franquias = DB::table('franquias')->select('id', 'nome')->get();
+        $produtos = DB::table('produtos')->select('id', 'nome')->get();
+        return view('admin.entrada', compact('entradas','franquias','produtos'));
     }
 
     /**
@@ -23,7 +34,7 @@ class EntradaController extends Controller
      */
     public function create()
     {
-        //
+        //return view('painel.produto');
     }
 
     /**
@@ -32,9 +43,10 @@ class EntradaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EntradaRequest $request)
     {
-        //
+        Entrada::create($request->all());
+        return redirect()->route('entradas.index')->with('message', 'Entrada registada com sucesso!');
     }
 
     /**

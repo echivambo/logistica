@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Franquia;
+use App\Http\Requests\FranquiaRequest;
 use Illuminate\Http\Request;
 
 class FranquiaController extends Controller
 {
+    private $franquia;
+    public function __construct(Franquia $franquia)
+    {
+        $this->franquia=$franquia;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class FranquiaController extends Controller
      */
     public function index()
     {
-        //
+        $franquias = $this->franquia->all();
+        return view('admin.franquia', compact('franquias'));
     }
 
     /**
@@ -23,7 +32,7 @@ class FranquiaController extends Controller
      */
     public function create()
     {
-        //
+        //return view('painel.produto');
     }
 
     /**
@@ -32,9 +41,10 @@ class FranquiaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FranquiaRequest $request)
     {
-        //
+        Franquia::create($request->all());
+        return redirect()->route('franquias.index')->with('message', 'Franquia registada com sucesso!');
     }
 
     /**
