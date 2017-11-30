@@ -3,14 +3,14 @@
     <div class="sidebar-nav navbar-collapse slimscrollsidebar">
         <ul class="nav" id="side-menu">
             <li style="padding: 10px 0 0;">
-                <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Painel</span></a>
+                <a href="{{route('home')}}" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><span class="hide-menu">Painel</span></a>
             </li>
             <li>
-                <a href="profile.html" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hide-menu">Gerar Código</span></a>
+                <a href="{{route('entradas.index')}}" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hide-menu">Entradas</span></a>
             </li>
 
             <li>
-                <a href="profile.html" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hide-menu">Providers</span></a>
+                <a href="{{route('contagens.index')}}" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="hide-menu">Contagem</span></a>
             </li>
 
 
@@ -19,10 +19,10 @@
             </li>
             <ul class="sub-menu collapse" id="param">
                 <li>
-                    <a href="blank.html" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i><span class="hide-menu">Provincia</span></a>
+                    <a href="{{route('produtos.index')}}" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i><span class="hide-menu">Produtos</span></a>
                 </li>
                 <li>
-                    <a href="404.html" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class="hide-menu">Distrito</span></a>
+                    <a href="{{route('franquias.index')}}" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class="hide-menu">Franquias</span></a>
                 </li>
             </ul>
 

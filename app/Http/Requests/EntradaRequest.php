@@ -25,7 +25,7 @@ class EntradaRequest extends FormRequest
     {
         return [
             'quantidade'=>'required',
-            'comentario'=>'min:10',
+            'comentario'=>'min:2',
             'data_entrada'=>'required',
             'produto_id'=>'required|integer|min:1',
             'franquia_id'=>'required|integer|min:1',

@@ -17,4 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/produtos', 'ProdutoController');
+    Route::resource('/franquias', 'FranquiaController');
+    Route::resource('/entradas', 'EntradaController');
+    Route::resource('/contagens', 'ContagemController');
+});

@@ -17,7 +17,7 @@ class CreateContagemsTable extends Migration
             $table->increments('id');
             $table->double('quantidade');
             $table->date('data_contagem');
-            $table->text('comentario')->default(null);
+            $table->text('comentario')->nullable(true);
             $table->boolean('status')->default(1);
             $table->integer('franquia_id')->references('id')->on('franquias');
             $table->integer('produto_id')->references('id')->on('produtos');

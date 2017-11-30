@@ -38,10 +38,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $.toast({
-            heading: 'Welcome to Pixel admin',
-            text: 'Use the predefined ones, or specify a custom position object.',
+            heading: 'Seja bem vindo de novo',
+            text: 'Espero que estejas bem, tenha um optimo trabalho!',
             position: 'top-right',
-            loaderBg: '#ff6849',
+            loaderBg: '#f6941e',
             icon: 'info',
             hideAfter: 3500,
             stack: 6

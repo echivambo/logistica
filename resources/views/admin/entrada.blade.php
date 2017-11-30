@@ -34,11 +34,6 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="nome">Disciplina</label>
                                 <div class="col-md-9">
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Designaçäo da disciplina</option>
-                                        <option value="">Português</option>
-                                        <option value="">Matemática</option>
-                                    </select>
                                     <input id="nome" name="nome" type="text" placeholder="Designaçäo da disciplina" class="form-control" required>
                                 </div>
                             </div>
@@ -119,6 +114,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!--/.main-->
 
