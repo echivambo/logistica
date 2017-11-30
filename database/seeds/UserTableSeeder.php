@@ -23,5 +23,7 @@ class UserTableSeeder extends Seeder
             'email' => 'enhacudima@psi.org.mz',
             'password' => bcrypt('Psi12345')
         ]);
+
+
     }
 }

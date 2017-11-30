@@ -11,6 +11,29 @@ class FranquiaTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('franquias')->insert([
+            'nome'=>'Franquia Tem Mais + Chamanculo',
+            'provincia' => 'Maputo',
+            'distrito' => 'Kaubukwane',
+            'user_id'=>'1'
+
+        ]);
+
+        DB::table('franquias')->insert([
+            'nome'=>'Franquia Tem Mais + Malehice',
+            'provincia' => 'Maputo',
+            'distrito' => 'Kaubukwane',
+            'user_id'=>'1'
+
+        ]);
+
+
+        DB::table('franquias')->insert([
+            'nome'=>'Franquia Tem Mais',
+            'provincia' => 'Maputo',
+            'distrito' => 'Kaubukwane',
+            'user_id'=>'1'
+
+        ]);
     }
 }
