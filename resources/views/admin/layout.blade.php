@@ -23,6 +23,8 @@
 </div>
 
 
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('admin/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>

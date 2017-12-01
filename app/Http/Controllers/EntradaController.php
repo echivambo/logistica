@@ -24,7 +24,7 @@ class EntradaController extends Controller
     {
         $entradas = $this->entrada->all();
         $franquias = DB::table('franquias')->select('id', 'nome')->get();
-        $produtos = DB::table('produtos')->select('id', 'nome')->get();
+        $produtos = DB::table('produtos')->select('id', 'nome', 'codigo')->get();
         return view('admin.entrada', compact('entradas','franquias','produtos'));
     }
 
