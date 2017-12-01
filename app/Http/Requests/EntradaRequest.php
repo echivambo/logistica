@@ -24,10 +24,10 @@ class EntradaRequest extends FormRequest
     public function rules()
     {
         return [
-            'quantidade'=>'required',
+            //'quantidade'=>'required',
             'comentario'=>'min:2',
             'data_entrada'=>'required',
-            'produto_id'=>'required|integer|min:1',
+            //'produto_id'=>'required|integer|min:1',
             'franquia_id'=>'required|integer|min:1',
             'user_id'=>'required|integer|min:1',
         ];

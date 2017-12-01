@@ -52,9 +52,9 @@
                             <div id="nr-campos">
                                 <label class="text-info col-md-12">Introduza o número de produtos</label>
                                 <div class="col-md-2">
-                                    <input type="number" placeholder="5"  class="form-control form-control-line text-right">
+                                    <input type="number" id="add_v" placeholder="5"  class="form-control form-control-line text-right">
                                 </div>
-                                <button class="btn btn-info" id="add">add</button>
+                                <button class="btn btn-info" id="add"><b>+</b> add</button>
                             </div>
 
 
@@ -105,7 +105,11 @@
             createForm(totalInput);
         });
         $('#add').click(function () {
-            alert('ok');
+            var total = parseInt($('#add_v').val());
+            totalInput += total;
+            createForm(totalInput);
+                //alert(totalInput);
+            return false;
         });
         // Cria os campos para input
         function createForm(totalPaginas) {
@@ -115,7 +119,7 @@
             for (i = 1; i <= totalInput; i++) {
                 distribuicao += '<tr>'+
                     '<td>'+
-                    '<select id="produto_id'+ i + '" name="produto_id' + i + '" class="form-control nprodutos" oninput=" Calctotal(\'untqd' + i + '\', \'qd' + i + '\', \'total' + i + '\');" onchange="fillUnidade(\'nprodutos'+ i + '\', \'untqd' + i + '\');  Calctotal(\'untqd' + i + '\', \'qd' + i + '\', \'total' + i + '\');">'+
+                    '<select id="produto_id'+ i + '" name="produto_id[]" class="form-control nprodutos" oninput=" Calctotal(\'untqd' + i + '\', \'qd' + i + '\', \'total' + i + '\');" onchange="fillUnidade(\'nprodutos'+ i + '\', \'untqd' + i + '\');  Calctotal(\'untqd' + i + '\', \'qd' + i + '\', \'total' + i + '\');">'+
                     '<option value="">Carregar Lista Produto...</option>'+
                         @foreach($produtos as $produto)
                             '<option value="{{$produto->id}}">{{$produto->codigo}} - {{$produto->nome}}</option>'+
@@ -123,10 +127,10 @@
                     '</select>'+
                     '</td>'+
                     '<td>'+
-                    '<input id="quantidade' + i + '" name="quantidade' + i + '" type="number" placeholder="0"  class="form-control untqd" disabled>'+
+                    '<input id="quantidade' + i + '" name="quantidade[]" type="number" placeholder="0"  class="form-control untqd" >'+
                     '</td>'+
                     '<td>'+
-                    '<input id="comentario' + i + '" name="comentario' + i + '" type="number" placeholder="0" class="form-control total" disabled="true total">'+
+                    '<input id="comentario' + i + '" name="comentario[]" type="text" placeholder="0" class="form-control total" >'+
                     '</td>'+
                     '</tr>';
             }

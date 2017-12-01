@@ -6,6 +6,7 @@ use App\Entrada;
 use App\Http\Requests\EntradaRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use MongoDB\BSON\Timestamp;
 
 class EntradaController extends Controller
 {
@@ -46,8 +47,27 @@ class EntradaController extends Controller
      */
     public function store(EntradaRequest $request)
     {
-        Entrada::create($request->all());
+        $size = sizeof($request->quantidade);
+
+        for ($i=0; $i < $size; $i++) {
+
+            if($request->quantidade[$i]){
+
+            $entradas = [
+                'comentario'=>$request->comentario[$i],
+                'data_entrada'=>$request->data_entrada,
+                'user_id'=>$request->user_id,
+                'quantidade'=>$request->quantidade[$i],
+                'produto_id'=>$request->produto_id[$i],
+                'franquia_id'=>$request->franquia_id,
+            ];
+            Entrada::create($entradas);
+
+           }
+
+       }
         return redirect()->route('entradas.index')->with('message', 'Entrada registada com sucesso!');
+       //var_dump($request->quantidade);
     }
 
     /**
