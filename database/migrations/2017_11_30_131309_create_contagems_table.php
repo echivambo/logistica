@@ -16,7 +16,7 @@ class CreateContagemsTable extends Migration
         Schema::create('contagems', function (Blueprint $table) {
             $table->increments('id');
             $table->double('quantidade');
-            $table->date('data_contagem');
+            $table->string('mes',20);
             $table->text('comentario')->nullable(true);
             $table->boolean('status')->default(1);
             $table->integer('franquia_id')->references('id')->on('franquias');

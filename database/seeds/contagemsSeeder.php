@@ -14,7 +14,7 @@ class contagemsSeeder extends Seeder
 
         DB::table('contagems')->insert([
             'quantidade'=>'98',
-            'data_contagem' => '2017-09-26',
+            'mes' => '2017-11',
             'comentario' => 'Cotagem do fecho do mes',
             'franquia_id'=>'1',
             'produto_id'=>'1',
@@ -23,7 +23,7 @@ class contagemsSeeder extends Seeder
         ]);
         DB::table('contagems')->insert([
             'quantidade'=>'23',
-            'data_contagem' => '2017-09-26',
+            'mes' => '2017-11',
             'comentario' => 'Cotagem do fecho do mes',
             'franquia_id'=>'1',
             'produto_id'=>'1',
@@ -32,7 +32,7 @@ class contagemsSeeder extends Seeder
         ]);
         DB::table('contagems')->insert([
             'quantidade'=>'34',
-            'data_contagem' => '2017-09-26',
+            'mes' => '2017-11',
             'comentario' => 'Cotagem do fecho do mes',
             'franquia_id'=>'1',
             'produto_id'=>'1',
@@ -41,7 +41,7 @@ class contagemsSeeder extends Seeder
         ]);
         DB::table('contagems')->insert([
             'quantidade'=>'90',
-            'data_contagem' => '2017-09-26',
+            'mes' => '2017-11',
             'comentario' => 'Cotagem do fecho do mes',
             'franquia_id'=>'1',
             'produto_id'=>'1',

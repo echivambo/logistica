@@ -55,7 +55,7 @@ class EntradaController extends Controller
 
             $entradas = [
                 'comentario'=>$request->comentario[$i],
-                'data_entrada'=>$request->data_entrada,
+                'mes'=>$request->mes,
                 'user_id'=>$request->user_id,
                 'quantidade'=>$request->quantidade[$i],
                 'produto_id'=>$request->produto_id[$i],

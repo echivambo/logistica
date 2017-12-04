@@ -13,7 +13,7 @@ class entradaSendeeder extends Seeder
     {
         DB::table('entradas')->insert([
             'quantidade' => '3000000',
-            'data_entrada' => '2017-09-26',
+            'mes' => '2017-12',
             'comentario'=>'Entrada do MISAU',
             'produto_id'=>'1',
             'franquia_id'=>'1',
@@ -22,7 +22,7 @@ class entradaSendeeder extends Seeder
         ]);
         DB::table('entradas')->insert([
             'quantidade' => '-300',
-            'data_entrada' => '2017-09-26',
+            'mes' => '2017-12',
             'comentario'=>'Correção da entrada do mes de Julho',
             'franquia_id'=>'1',
             'produto_id'=>'1',

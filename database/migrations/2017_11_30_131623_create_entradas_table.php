@@ -16,7 +16,7 @@ class CreateEntradasTable extends Migration
         Schema::create('entradas', function (Blueprint $table) {
             $table->increments('id');
             $table->double('quantidade');
-            $table->date('data_entrada');
+            $table->string('mes',20);
             $table->text('comentario')->nullable(true);
             $table->boolean('status')->default(1);
             $table->integer('franquia_id')->references('id')->on('franquias');

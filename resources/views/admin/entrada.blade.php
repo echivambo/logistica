@@ -12,7 +12,7 @@
 
     <div class="row bg-title">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h4 class="page-title">Entradas</h4> </div>
+            <h4 class="page-title">Entradas de Produtos</h4> </div>
     </div>
     <!-- /.row -->
 
@@ -22,6 +22,7 @@
             @include('admin.mensagens.msg')
             <form class="form-horizontal form-material" method="POST" action="{{ route('entradas.store')}}">
             {{ csrf_field() }}
+                <div id="nr-campos">
 
             <!--User ID-->
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -40,48 +41,33 @@
                 </div>
 
                     <div class="form-group">
-                        <label class="col-md-12">Data</label>
+                        <label class="col-md-12">Mês</label>
                         <div class="col-md-3">
-                            <input type="date" placeholder="Data" name="data_entrada" class="form-control form-control-line">
+                            <input type="month" name="mes" class="form-control form-control-line">
                         </div>
                     </div>
+              </div>
 
                     <div class="form-group">
                         <table  class="table table-bordered table-hover table-sortable col-md-12">
                             <thead>
-                            <div id="nr-campos">
-                                <label class="text-info col-md-12">Introduza o número de produtos</label>
-                                <div class="col-md-2">
-                                    <input type="number" id="add_v" placeholder="5"  class="form-control form-control-line text-right">
-                                </div>
-                                <button class="btn btn-info" id="add"><b>+</b> add</button>
-                            </div>
+
 
 
                             <tr id="tHeader2">
                                 <th>Produto</th>
                                 <th>Quantidade</th>
                                 <th>Comentario</th>
+                                <th>
+                                    <button class="btn btn-info center-block" id="add"><b>+</b> add</button>
+                                </th>
                             </tr>
                             </thead>
 
                             <tbody id="corpo-pro">
 
                             <tr id="trDistribuicao">
-                                <td>
-                                    <select id="produto_id" name="produto_id" class="form-control nprodutos" >
-                                        <option value="">Carregar Lista Produto...</option>
-                                        @foreach($produtos as $produto)
-                                            <option value="{{$produto->id}}">{{$produto->codigo}} - {{$produto->nome}}</option>
-                                        @endforeach
-                                    </select>
-                                </td>
-                                <td>
-                                    <input id="quantidade" name="quantidade" type="number" placeholder="0" class="form-control untqd">
-                                </td>
-                                <td>
-                                    <input id="comentario" name="comentario" type="text" placeholder="Comentario" class="form-control qd">
-                                </td>
+
                             </tr>
 
                             </tbody>
@@ -100,15 +86,39 @@
 
     <script>
         var totalInput=5;
-
         $(document).ready(function () {
             createForm(totalInput);
         });
+
+        $(document).on('click','button.remove', function () {
+            $(this).closest('tr').remove();
+            return false;
+        });
+
+
+
         $('#add').click(function () {
             var total = parseInt($('#add_v').val());
-            totalInput += total;
-            createForm(totalInput);
-                //alert(totalInput);
+            var distribuicao = '<tr>'+
+                '<td>'+
+                '<select id="produto_id'+ i + '" name="produto_id[]" class="form-control nprodutos" oninput=" Calctotal(\'untqd' + i + '\', \'qd' + i + '\', \'total' + i + '\');" onchange="fillUnidade(\'nprodutos'+ i + '\', \'untqd' + i + '\');  Calctotal(\'untqd' + i + '\', \'qd' + i + '\', \'total' + i + '\');">'+
+                '<option value="">Carregar Lista Produto...</option>'+
+                    @foreach($produtos as $produto)
+                        '<option value="{{$produto->id}}">{{$produto->codigo}} - {{$produto->nome}}</option>'+
+                    @endforeach
+                        '</select>'+
+                '</td>'+
+                '<td>'+
+                '<input id="quantidade' + i + '" name="quantidade[]" type="number" placeholder="0"  class="form-control untqd" >'+
+                '</td>'+
+                '<td>'+
+                '<input id="comentario' + i + '" name="comentario[]" type="text" placeholder="0" class="form-control total" >'+
+                '</td>'+
+                '<td>'+
+                '<button class="btn btn-danger remove" id="add" onclick="return false;"><b>X</b></button>'+
+                '</td>'+
+                '</tr>';
+            $('#corpo-pro').append(distribuicao);
             return false;
         });
         // Cria os campos para input
@@ -131,6 +141,9 @@
                     '</td>'+
                     '<td>'+
                     '<input id="comentario' + i + '" name="comentario[]" type="text" placeholder="0" class="form-control total" >'+
+                    '</td>'+
+                    '<td>'+
+                    '<button class="btn btn-danger remove center-block" id="add" onclick="return false;"><b>X</b></button>'+
                     '</td>'+
                     '</tr>';
             }

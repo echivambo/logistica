@@ -12,6 +12,6 @@ class Contagem extends Model
      * @var array
      */
     protected $fillable = [
-        'quantidade', 'data_contagem', 'comentario', 'user_id', 'produto_id',
+        'quantidade', 'mes', 'comentario', 'user_id', 'produto_id', 'franquia_id'
     ];
 }

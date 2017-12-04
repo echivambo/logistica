@@ -12,6 +12,6 @@ class Entrada extends Model
      * @var array
      */
     protected $fillable = [
-        'quantidade', 'data_entrada', 'comentario', 'franquia_id', 'produto_id', 'user_id',
+        'quantidade', 'mes', 'comentario', 'franquia_id', 'produto_id', 'user_id',
     ];
 }

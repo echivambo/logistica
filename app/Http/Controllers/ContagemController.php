@@ -26,7 +26,8 @@ class ContagemController extends Controller
         $contagems = $this->contagem->all();
         $franquias = DB::table('franquias')->select('id', 'nome')->get();
         $produtos = DB::table('produtos')->select('id', 'nome', 'codigo')->get();
-        return view('admin.contagem', compact('contagems','franquias','produtos'));
+        $entradas = DB::table('entradas')->select('id', 'mes')->get();
+        return view('admin.contagem', compact('contagems','franquias','produtos','entradas'));
     }
 
     /**
@@ -53,20 +54,20 @@ class ContagemController extends Controller
 
             if($request->quantidade[$i]){
 
-                $entradas = [
+                $contagem = [
                     'comentario'=>$request->comentario[$i],
-                    'data_entrada'=>$request->data_entrada,
+                    'mes'=>$request->mes,
                     'user_id'=>$request->user_id,
                     'quantidade'=>$request->quantidade[$i],
                     'produto_id'=>$request->produto_id[$i],
                     'franquia_id'=>$request->franquia_id,
                 ];
-                Entrada::create($entradas);
+                Contagem::create($contagem);
 
             }
 
         }
-        return redirect()->route('entradas.index')->with('message', 'Entrada registada com sucesso!');
+        return redirect()->route('contagens.index')->with('message', 'Entrada registada com sucesso!');
         //var_dump($request->quantidade);
     }
 
