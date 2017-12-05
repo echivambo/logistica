@@ -19,11 +19,10 @@ select
   sum(quantidade) as saldo_inicial,
  codigo,
  p.nome as produto,
- p.status,
  p.id as produto_id
 from (contagems c join produtos p on p.id=produto_id) join franquias f ON c.franquia_id=f.id
 WHERE p.status=1
-GROUP BY mes, produto_id, franquia_id;
+GROUP BY mes, produto_id, franquia_id, f.id, f.nome, p.codigo, p.nome, p.id;
 
 
 ---------------------------------------------------------------
@@ -66,7 +65,7 @@ create view control_p as
    franquias f ON e.franquia_id=f.id) JOIN
   produtos p on  e.produto_id=p.id) join saldo_inicial s on e.franquia_id=s.franquia_id AND s.produto_id=e.produto_id
  WHERE p.status=1
- GROUP BY f.id, f.nome, f.nome, e.mes, e.produto_id, p.codigo, p.nome; 
+ GROUP BY f.id, f.nome, e.mes, e.produto_id, p.codigo, p.nome, s.saldo_inicial; 
 
 ------------------------------------------------------------------
 ----------------------------join entre view----------------------------
