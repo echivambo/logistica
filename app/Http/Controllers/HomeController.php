@@ -27,6 +27,10 @@ class HomeController extends Controller
         $controle = DB::table('control_p')
             ->orderByRaw('mes DESC')
             ->get();
+			
+	    $saldo_inicial = DB::table('saldo_inicial')
+            ->orderByRaw('mes DESC')
+            ->get();
         /*
         $controle = DB::table('control_p')
             ->join('contacts', 'users.id', '=', 'contacts.user_id')
@@ -34,6 +38,6 @@ class HomeController extends Controller
             ->select('control_p.*', 'contacts.phone', 'orders.price')
             ->get();
         */
-        return view('home', compact('controle'));
+        return view('home', compact('controle', 'saldo_inicial'));
     }
 }

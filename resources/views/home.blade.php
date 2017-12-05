@@ -115,7 +115,7 @@
                                         <td>{{$cli->mes}}</td>
                                         <td>{{$cli->codigo}}</td>
                                         <td>{{$cli->produto}}</td>
-                                        <td></td>
+                                        <td>{{$cli->saldo_inicial}}</td>
                                         <td>{{$cli->contagem_fisica}}</td>
                                         <td>{{$cli->qtd_entrada}}</td>
                                         <td>{{$cli->consumo}}</td>
@@ -128,7 +128,43 @@
                     </div>
                 </div>
             </div>
+		
+		<div class="row">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Saldo Inicial</h3>
+                        <ul class="list-inline text-right">
+                            <li>
+                                <a href="#" ><h5 style="color: #73a534;"><i class="fa fa-circle m-r-5" style="color: #73a534;"></i>Baixar Relatório</h5></a>
+                            </li>
+                        </ul>
+                        <div id="morris-area-chart2" style="height: 370px; overflow: scroll;">
+                            <table class="table display nowrap "  id="sal_inicial" cellspacing="0">
+                               <thead>
+                                   <th>Franquia</th>
+                                   <th>Mês</th>
+                                   <th>Código</th>
+                                   <th>Produto</th>
+                                   <th>Saldo inicial</th>
+                               </thead>
+                                <tbody>
+                                @foreach($saldo_inicial as $cli)
+                                    <tr>
+                                        <td>{{$cli->franquia}}</td>
+                                        <td>{{$cli->mes}}</td>
+                                        <td>{{$cli->codigo}}</td>
+                                        <td>{{$cli->produto}}</td>
+                                        <td>{{$cli->saldo_inicial}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
 
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
 
                 <!--row -->
 
@@ -152,6 +188,15 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable( {
+                "scrollY": 200,
+                "scrollX": true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf', 'print'
+                ]
+            } );
+			
+			 $('#sal_inicial').DataTable( {
                 "scrollY": 200,
                 "scrollX": true,
                 dom: 'Bfrtip',
