@@ -21,11 +21,13 @@
                 <li>
                     <a href="{{route('produtos.index')}}" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i><span class="hide-menu">Produtos</span></a>
                 </li>
+                <!--
                 <li>
-                    <a href="{{route('franquias.index')}}" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class="hide-menu">Franquias</span></a>
+                    <a href="#" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class="hide-menu">Franquias</span></a>
                 </li>
+                -->
                 <li>
-                    <a href="{{route('register')}}" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class="hide-menu">Usuarios</span></a>
+                    <a href="{{route('users.index')}}" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class="hide-menu">Usuarios</span></a>
                 </li>
             </ul>
 

@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,4 +26,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/franquias', 'FranquiaController');
     Route::resource('/entradas', 'EntradaController');
     Route::resource('/contagens', 'ContagemController');
+    Route::resource('/users', 'UserController');
 });

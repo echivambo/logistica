@@ -25,7 +25,7 @@ class ProdutoRequest extends FormRequest
     {
         return [
             'nome'=>'required|min:2|max:100',
-            'codigo'=>'required|min:2|max:150',
+            'codigo'=>'required|min:2|max:150|unique:produtos',
             'descricao'=>'max:255',
             'user_id'=>'required|integer|min:1',
         ];

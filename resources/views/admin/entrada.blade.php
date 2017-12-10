@@ -115,7 +115,7 @@
                 '<input id="comentario' + i + '" name="comentario[]" type="text" placeholder="0" class="form-control total" >'+
                 '</td>'+
                 '<td>'+
-                '<button class="btn btn-danger remove" id="add" onclick="return false;"><b>X</b></button>'+
+                '<button class="btn btn-danger remove center-block" onclick="return false;"><b>X</b></button>'+
                 '</td>'+
                 '</tr>';
             $('#corpo-pro').append(distribuicao);
@@ -143,7 +143,7 @@
                     '<input id="comentario' + i + '" name="comentario[]" type="text" placeholder="0" class="form-control total" >'+
                     '</td>'+
                     '<td>'+
-                    '<button class="btn btn-danger remove center-block" id="add" onclick="return false;"><b>X</b></button>'+
+                    '<button class="btn btn-danger remove center-block" onclick="return false;"><b>X</b></button>'+
                     '</td>'+
                     '</tr>';
             }

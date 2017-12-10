@@ -22,7 +22,7 @@ class FranquiaController extends Controller
     public function index()
     {
         $franquias = $this->franquia->all();
-        return view('admin.franquia', compact('franquias'));
+        //return view('admin.franquia', compact('franquias'));
     }
 
     /**
@@ -44,7 +44,7 @@ class FranquiaController extends Controller
     public function store(FranquiaRequest $request)
     {
         Franquia::create($request->all());
-        return redirect()->route('franquias.index')->with('message', 'Franquia registada com sucesso!');
+        //return redirect()->route('franquias.index')->with('message', 'Franquia registada com sucesso!');
     }
 
     /**
